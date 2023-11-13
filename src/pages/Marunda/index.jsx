@@ -15,14 +15,12 @@ export function Marunda() {
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
 
-    html2pdf()
-      .from(element)
-      .set(opt)
-      .outputPdf("datauri")
-      .then((out) => {
-        // console.log(out);
-        setUri(out);
-      });
+    html2pdf().from(element).set(opt).save();
+    // .outputPdf("datauri");
+    // .then((out) => {
+    //   // console.log(out);
+    //   setUri(out);
+    // });
   }
 
   //   "https://dagrs.berkeley.edu/sites/default/files/2020-01/sample.pdf"
