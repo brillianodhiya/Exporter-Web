@@ -670,7 +670,7 @@ export function Marunda() {
           </div>
 
           {/* section 5 */}
-          <div class={"mt-4 w-full pt-1 "}>
+          <div class={"mt-4 w-full pt-1 mb-4"}>
             <table class={"w-full"}>
               <tbody>
                 {data.lain_lain
