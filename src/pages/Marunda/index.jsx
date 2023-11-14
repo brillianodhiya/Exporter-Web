@@ -1,65 +1,98 @@
 import { useEffect, useState } from "preact/hooks";
 import html2pdf from "html2pdf.js";
+import query from "query-string";
+import moment from "moment";
+import {
+  WeCurrencyWith00,
+  base64ToBase64Url,
+  base64UrlToBase64,
+  convertNumberSm,
+} from "../../components/utils/Converter";
 
 export function Marunda() {
   const [uri, setUri] = useState("");
+  const params = query.parse(window.location.search);
 
-  function generatePDF() {
+  // console.log(params, "params");
+
+  const getdata = () => {
+    const data = JSON.parse(atob(base64UrlToBase64(params?.data)));
+    if (!!data && !!data.url) {
+      return {};
+    } else {
+      return data;
+    }
+  };
+
+  const data = getdata();
+
+  async function generatePDF() {
     const element = document.getElementById("html-content-holder");
     const opt = {
       //   margin: 0.5,
       margin: 0,
-      filename: "myfile.pdf",
+      filename: data.invoice + ".pdf",
       image: { type: "png", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
 
-    html2pdf().from(element).set(opt).save();
+    await html2pdf().from(element).set(opt).save();
     // .outputPdf("datauri");
     // .then((out) => {
     //   // console.log(out);
     //   setUri(out);
     // });
+    // window.close();
+    // http://127.0.0.1:5173/marunda?data=eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJEaXNjb3VudCBLd2goMTAwIHggMjI4Nzg5KSI6MjI4Nzg5MDAsIkJpYXlhIFBlbmVyYW5nYW4gSmFsYW4gVW11bSAoNSUpIjoxMDI5NTUwNSwiVGFnaWhhbiBMYWlubnlhICgxMCUpIjoyMTYyMDU2MC41fSwidG90YWwiOjIzNzgyNjE2NS41LCJncmFuZHRvdGFsIjoyMzc4MjYxNjUuNX0=
   }
 
-  //   "https://dagrs.berkeley.edu/sites/default/files/2020-01/sample.pdf"
-
   useEffect(() => {
+    generatePDF();
     setTimeout(() => {
-      generatePDF();
-    }, 5000);
+      // window.location.href = "about:blank";
+      window.close();
+    }, 1000);
     return () => {};
   }, []);
 
   console.log(
-    encodeURI(
+    base64ToBase64Url(
       btoa(
         JSON.stringify({
           id: 61745,
           lain_lain: {
-            "Discount Kwh(100 x 228789)": 22878900,
-            "Biaya Penerangan Jalan Umum (5%)": 10295505,
-            "Tagihan Lainnya (10%)": 21620560.5,
+            "Tagihan Lainnya (10%)": 6006,
           },
-          total: 237826165.5,
-          grandtotal: 237826165.5,
-          export: {
-            node_type: "ELECTRICITY 1 PHASE",
-            start_date: "2023-07-06T15:30:00+08:00",
-            end_date: "2023-11-13T01:00:00+08:00",
-            lwbp_awal: 0,
-            lwbp_akhir: 0,
-            wbp_awal: 0,
-            wbp_akhir: 0,
-            kwh_awal: 670709,
-            kwh_akhir: 899498,
-            billing_pemakian_kwh: 228789,
-            kvarh_awal: 0,
-            kvarh_akhir: 0,
-            pemakian_kvarh: 0,
-            kelebihan_kvarh: 0,
-          },
+          sub_total: 60060,
+          grandtotal: 66066,
+          unit: "m3",
+          start_date: "2023-10-31T19:00:00+08:00",
+          end_date: "2023-11-09T08:00:00+08:00",
+          start_meter: 928.06,
+          end_meter: 948.08,
+          minimum_charge_total: 0,
+          billing_usage: 20.02,
+          usage: 20.02,
+          parameter_1: "26",
+          parameter_2: "26",
+          parameter_3: "35",
+          price_parameter_1: 3000,
+          price_parameter_2: 3500,
+          price_parameter_3: 4000,
+          amount_parameter_1: 60060,
+          amount_parameter_2: 0,
+          amount_parameter_3: 0,
+          usage_parameter_1: 20.02,
+          usage_parameter_2: 0,
+          usage_parameter_3: 0,
+          due_date: null,
+          cut_date: "2023-11-09 07:00:00",
+          invoice: "MC.BLOK E.96-INV-091123-238G",
+          faktur: null,
+          id_pelanggan: "",
+          tenant_name: "E 3 NO.11-PT. TUNAS MAJU MANDIRI",
+          billing_address: "E 3 NO.11",
         })
       )
     )
@@ -85,7 +118,7 @@ export function Marunda() {
             <div>
               <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN AIR</h3>
               <h4 class={"text-sm"}>Kepada Yth,</h4>
-              <h3 class={"font-bold text-sm"}>PT. ANDALAN FURNINDO</h3>
+              <h3 class={"font-bold text-sm"}>{data.tenant_name}</h3>
             </div>
             <div>
               <h3 class={"text-xl font-bold text-right"}>Marunda Center</h3>
@@ -115,7 +148,7 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        INV/GCP/WTR/08/23/064
+                        {data.invoice}
                       </p>
                     </td>
                   </tr>
@@ -137,7 +170,15 @@ export function Marunda() {
                       class={
                         "border-solid border border-black text-xs border-b-0"
                       }
-                    ></td>
+                    >
+                      <p
+                        class={
+                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                        }
+                      >
+                        {data.faktur}
+                      </p>
+                    </td>
                   </tr>
                   <tr>
                     <td
@@ -163,7 +204,7 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        C1057
+                        {data.id_pelanggan}
                       </p>
                     </td>
                   </tr>
@@ -189,7 +230,7 @@ export function Marunda() {
                     Blok
                   </p>
                 </td>
-                <td
+                {/* <td
                   class={
                     "border-solid border border-black border-b-0 border-r-0 text-xs relative"
                   }
@@ -214,7 +255,7 @@ export function Marunda() {
                   >
                     No. Tagihan
                   </p>
-                </td>
+                </td> */}
                 <td
                   class={
                     "border-solid border border-black border-b-0 border-r-0 text-xs relative"
@@ -268,10 +309,10 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                     }
                   >
-                    M No 1
+                    {data.billing_address}
                   </p>
                 </td>
-                <td
+                {/* <td
                   class={
                     "border-solid border border-black text-xs relative border-r-0"
                   }
@@ -294,7 +335,7 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                     }
                   ></p>
-                </td>
+                </td> */}
                 <td
                   class={
                     "border-solid border border-black text-xs relative border-r-0"
@@ -305,7 +346,7 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                     }
                   >
-                    1-Sep-23
+                    {moment(data.cut_date).format("DD-MMM-YY")}
                   </p>
                 </td>
                 <td
@@ -318,7 +359,7 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                     }
                   >
-                    Rp112.744.046
+                    {WeCurrencyWith00(data.grandtotal)}
                   </p>
                 </td>
                 <td class={"border-solid border border-black text-xs relative"}>
@@ -327,7 +368,9 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                     }
                   >
-                    20-Sep-23
+                    {data.due_date
+                      ? moment(data.due_date).format("DD-MMM-YY")
+                      : ""}
                   </p>
                 </td>
               </tr>
@@ -377,7 +420,8 @@ export function Marunda() {
           {/* sction 3  */}
           <div class={"w-full mt-5 mb-7"}>
             <h4 class={"font-bold text-sm"}>
-              Pencatatan Meteran Air Periode Agustus 2023
+              Pencatatan Meteran Air Periode{" "}
+              {moment(data.cut_date).format("MMMM YYYY")}
             </h4>
           </div>
 
@@ -461,7 +505,7 @@ export function Marunda() {
                         "font-normal ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      Biaya <br /> Pemakaian
+                      Total <br /> Pemakaian
                     </p>
                   </th>
                   <th></th>
@@ -479,7 +523,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      1 Aug 23
+                      {moment(data.start_date).format("DD-MMM-YY")}
                     </p>
                   </td>
                   <td
@@ -492,7 +536,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      635
+                      {convertNumberSm(parseFloat(data.start_meter))}
                     </p>
                   </td>
                   <td
@@ -528,19 +572,22 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      1000
+                      {convertNumberSm(parseFloat(data.minimum_charge_total))}
                     </p>
                   </td>
                   <td
                     class={
                       "border-solid border border-black text-xs font-semibold relative"
                     }
+                    rowSpan={2}
                   >
                     <p
                       class={
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
-                    ></p>
+                    >
+                      {convertNumberSm(parseFloat(data.usage))}
+                    </p>
                   </td>
                   <td></td>
                 </tr>
@@ -555,8 +602,19 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      1 Aug 23
+                      {moment(data.end_date).format("DD MMM YY")}
                     </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    ></p>
                   </td>
                   <td
                     class={
@@ -568,19 +626,8 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      635
+                      {convertNumberSm(parseFloat(data.end_meter))}
                     </p>
-                  </td>
-                  <td
-                    class={
-                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
-                    }
-                  >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
-                      }
-                    ></p>
                   </td>
                   <td
                     class={
@@ -591,10 +638,12 @@ export function Marunda() {
                       class={
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
-                    ></p>
+                    >
+                      {convertNumberSm(parseFloat(data.usage))}
+                    </p>
                   </td>
 
-                  <td
+                  {/* <td
                     class={
                       "border-solid border border-black text-xs font-semibold relative border-t-0"
                     }
@@ -604,14 +653,14 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     ></p>
-                  </td>
+                  </td> */}
                   <td>
                     <p
                       class={
                         "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
                       }
                     >
-                      Rp102.494.587
+                      {WeCurrencyWith00(parseFloat(data.sub_total))}
                     </p>
                   </td>
                 </tr>
@@ -623,27 +672,33 @@ export function Marunda() {
           <div class={"mt-4 w-full pt-1 "}>
             <table class={"w-full"}>
               <tbody>
-                <tr>
-                  <td class={"text-sm relative w-[77%]"}>
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-left"
-                      }
-                    >
-                      TAGIHAN LAINNYA (10%)
-                    </p>
-                  </td>
-                  <td class={"text-xs relative border-r-0"}>
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
-                      }
-                    >
-                      Rp.10.249.459
-                    </p>
-                  </td>
-                </tr>
-                <tr>
+                {data.lain_lain
+                  ? Object.keys(data.lain_lain).map((v) => {
+                      return (
+                        <tr>
+                          <td class={"text-sm relative w-[77%]"}>
+                            <p
+                              class={
+                                "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-left"
+                              }
+                            >
+                              {v}
+                            </p>
+                          </td>
+                          <td class={"text-xs relative border-r-0"}>
+                            <p
+                              class={
+                                "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
+                              }
+                            >
+                              {WeCurrencyWith00(data.lain_lain[v])}
+                            </p>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  : null}
+                {/* <tr>
                   <td class={"text-xs relative flex justify-between"}>
                     <p
                       class={
@@ -666,7 +721,6 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
                       }
                     >
-                      {/* Rp.10.249.459 */}
                     </p>
                   </td>
                 </tr>
@@ -684,7 +738,6 @@ export function Marunda() {
                         "leading-normal -mt-[8px] mb-[8px] bottom-2 text-right"
                       }
                     >
-                      {/* Rp0 */}
                     </p>
                   </td>
                   <td class={"text-xs relative border-r-0"}>
@@ -693,7 +746,6 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
                       }
                     >
-                      {/* Rp.10.249.459 */}
                     </p>
                   </td>
                 </tr>
@@ -711,7 +763,6 @@ export function Marunda() {
                         "leading-normal -mt-[8px] mb-[8px] bottom-2 text-right"
                       }
                     >
-                      {/* Rp0 */}
                     </p>
                   </td>
                   <td class={"text-xs relative border-r-0"}>
@@ -720,10 +771,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
                       }
                     >
-                      {/* Rp.10.249.459 */}
                     </p>
                   </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>
@@ -760,7 +810,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-right font-bold"
                       }
                     >
-                      Rp112.744.046
+                      {WeCurrencyWith00(parseFloat(data.grandtotal))}
                     </p>
                   </td>
                 </tr>
@@ -769,7 +819,17 @@ export function Marunda() {
           </div>
 
           {/* section 7 */}
-          <div></div>
+          <div class={"pb-4"}>
+            <h4 class={"mb-2 text-xs"}>
+              * Pembayaran dengan transfer ke Rekening:{" "}
+              <span class={"text-sm font-bold italic"}>7100.8888.01</span> atas
+              nama{" "}
+              <span class={"text-sm font-bold italic"}>
+                PT. GLOBAL CITRA PRIMAKARYA
+              </span>{" "}
+              <br /> BCA , Cabang Tiang Bendera, Jakarta.
+            </h4>
+          </div>
         </div>
       </object>
     </div>

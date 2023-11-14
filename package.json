@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"html2pdf.js": "^0.10.1",
+		"moment": "^2.29.4",
 		"pdfmake": "^0.2.8",
 		"preact": "^10.13.1",
 		"preact-iso": "^2.3.2",
