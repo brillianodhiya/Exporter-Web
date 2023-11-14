@@ -38,7 +38,10 @@ export function Marunda() {
     };
 
     await html2pdf().from(element).set(opt).save();
-    window.close();
+    setTimeout(() => {
+      // window.location.href = "about:blank";
+      window.close();
+    }, 500);
     // .outputPdf("datauri");
     // .then((out) => {
     //   // console.log(out);
