@@ -59,7 +59,7 @@ export const KwhComponent = () => {
   // eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJUYWdpaGFuIExhaW5ueWEgKDEwJSkiOjYwMDZ9LCJzdWJfdG90YWwiOjYwMDYwLCJncmFuZHRvdGFsIjo2NjA2NiwidW5pdCI6Im0zIiwic3RhcnRfZGF0ZSI6IjIwMjMtMTAtMzFUMTk6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjMtMTEtMDlUMDg6MDA6MDArMDg6MDAiLCJzdGFydF9tZXRlciI6OTI4LjA2LCJlbmRfbWV0ZXIiOjk0OC4wOCwibWluaW11bV9jaGFyZ2VfdG90YWwiOjAsImJpbGxpbmdfdXNhZ2UiOjIwLjAyLCJ1c2FnZSI6MjAuMDIsInBhcmFtZXRlcl8xIjoiMjYiLCJwYXJhbWV0ZXJfMiI6IjI2IiwicGFyYW1ldGVyXzMiOiIzNSIsInByaWNlX3BhcmFtZXRlcl8xIjozMDAwLCJwcmljZV9wYXJhbWV0ZXJfMiI6MzUwMCwicHJpY2VfcGFyYW1ldGVyXzMiOjQwMDAsImFtb3VudF9wYXJhbWV0ZXJfMSI6NjAwNjAsImFtb3VudF9wYXJhbWV0ZXJfMiI6MCwiYW1vdW50X3BhcmFtZXRlcl8zIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMSI6MjAuMDIsInVzYWdlX3BhcmFtZXRlcl8yIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMyI6MCwiZHVlX2RhdGUiOm51bGwsImN1dF9kYXRlIjoiMjAyMy0xMS0wOSAwNzowMDowMCIsImludm9pY2UiOiJNQy5CTE9LIEUuOTYtSU5WLTA5MTEyMy0yMzhHIiwiZmFrdHVyIjpudWxsLCJpZF9wZWxhbmdnYW4iOiIiLCJ0ZW5hbnRfbmFtZSI6IkUgMyBOTy4xMS1QVC4gVFVOQVMgTUFKVSBNQU5ESVJJIiwiYmlsbGluZ19hZGRyZXNzIjoiRSAzIE5PLjExIn0
 
   useEffect(() => {
-    generatePDF();
+    // generatePDF();
 
     return () => {};
   }, []);
@@ -118,10 +118,8 @@ export const KwhComponent = () => {
             amount_kvarh: 2315678,
           },
           lain_lain2: [
-            "Pemakian minimum 60 jam : daya/1000 x 60 jam",
-            "900 kva x 60jam = 54000",
-            "Kelebihan pemakian KVARH",
-            "251186 - (0.62 x 323904) = 50365.52",
+            "Pemakian minimum 60 jam : daya/1000 x 60 jam\n900 kva x 60jam = 54000",
+            "Kelebihan pemakian KVARH\n251186 - (0.62 x 323904) = 50365.52",
           ],
         })
       )
@@ -1245,13 +1243,22 @@ export const KwhComponent = () => {
           <table class={"w-full"}>
             <tbody>
               {data.lain_lain2
-                ? data.lain_lain2.map((v) => {
+                ? data.lain_lain2.map((v, idx) => {
                     return (
                       <tr>
-                        <td class={"text-sm relative  pl-20"}>
+                        <td class={"text-sm relative pl-20 w-14"}>
                           <p
                             class={
-                              "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-left"
+                              "ml-1 leading-normal -mt-[30px] mr-1 bottom-2 left-1 text-left"
+                            }
+                          >
+                            {idx + 1}.{" "}
+                          </p>
+                        </td>
+                        <td class={"text-sm relative"}>
+                          <p
+                            class={
+                              "leading-normal -mt-[8px] mb-[8px] bottom-2 text-left whitespace-pre-wrap"
                             }
                           >
                             {v}
