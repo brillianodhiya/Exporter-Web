@@ -21,13 +21,7 @@ export const KwhComponent = () => {
   // });
 
   const getdata = () => {
-    const data = JSON.parse(
-      atob(
-        base64UrlToBase64(
-          "eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJEaXNjb3VudCBLd2goOTAgeCAzMjM5MDQpIjoyOTE1MTM2MCwiRGlzY291bnQgS3ZhcmgoOTAgeCA1MDM2NS41MikiOjQ1MzI4OTYuOCwiQmlheWEgUGVuZXJhbmdhbiBKYWxhbiBVbXVtICg1JSkiOjIyNjE0NDMxLjQyLCJUYWdpaGFuIExhaW5ueWEgKDEwJSkiOjQ3NDkwMzA1Ljk4Mn0sInRvdGFsIjo1MjIzOTMzNjUuODAyLCJncmFuZHRvdGFsIjo1MjIzOTMzNjUuODAyLCJzdWJfdG90YWwiOjQ4NTk3Mjg4NS4yLCJ1bml0IjoiIiwic3RhcnRfZGF0ZSI6IjIwMjMtMTAtMzFUMTk6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjMtMTEtMDlUMDg6MDA6MDArMDg6MDAiLCJzdGFydF9tZXRlciI6OTI4LjA2LCJlbmRfbWV0ZXIiOjk0OC4wOCwibWluaW11bV9jaGFyZ2VfdG90YWwiOjAsImJpbGxpbmdfdXNhZ2UiOjIwLjAyLCJ1c2FnZSI6MjAuMDIsImR1ZV9kYXRlIjpudWxsLCJjdXRfZGF0ZSI6IjIwMjMtMTEtMDkgMDc6MDA6MDAiLCJpbnZvaWNlIjoiTUMuQkxPSyBFLjk2LUlOVi0wOTExMjMtMjM4RyIsImZha3R1ciI6bnVsbCwiaWRfcGVsYW5nZ2FuIjoiIiwidGVuYW50X25hbWUiOiJFIDMgTk8uMTEtUFQuIFRVTkFTIE1BSlUgTUFORElSSSIsImJpbGxpbmdfYWRkcmVzcyI6IkUgMyBOTy4xMSIsImRpY291bnRfa3doIjoyOTE1MTM2MCwiZGljb3VudF9rdmFyaCI6NDUzMjg5Ni44LCJleHBvcnQiOnsibm9kZV90eXBlIjoiRUxFQ1RSSUNJVFkgMyBQSEFTRSIsInN0YXJ0X2RhdGUiOiIyMDIzLTEwLTI1VDE4OjMwOjAwKzA4OjAwIiwiZW5kX2RhdGUiOiIyMDIzLTExLTA5VDAxOjAwOjAwKzA4OjAwIiwibHdicF9hd2FsIjo1NTYxMzk3LCJsd2JwX2FraGlyIjo1ODMzMjQ1LCJ3YnBfYXdhbCI6MTExODE5Nywid2JwX2FraGlyIjoxMTcwMjUzLCJrd2hfYXdhbCI6NjY3OTU5NCwia3doX2FraGlyIjo3MDAzNDk4LCJiaWxsaW5nX3BlbWFraWFuX2t3aCI6MzIzOTA0LCJrdmFyaF9hd2FsIjo1Njk5OTU0LCJrdmFyaF9ha2hpciI6NTk1MTE0MCwicGVtYWtpYW5fa3ZhcmgiOjI1MTE4Niwia2VsZWJpaGFuX2t2YXJoIjo1MDM2NS41MiwiZGF5YSI6NTU2MX19"
-        )
-      )
-    );
+    const data = JSON.parse(atob(base64UrlToBase64(params.data)));
     if (!!data && !!data.url) {
       return {};
     } else {
@@ -65,7 +59,7 @@ export const KwhComponent = () => {
   // eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJUYWdpaGFuIExhaW5ueWEgKDEwJSkiOjYwMDZ9LCJzdWJfdG90YWwiOjYwMDYwLCJncmFuZHRvdGFsIjo2NjA2NiwidW5pdCI6Im0zIiwic3RhcnRfZGF0ZSI6IjIwMjMtMTAtMzFUMTk6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjMtMTEtMDlUMDg6MDA6MDArMDg6MDAiLCJzdGFydF9tZXRlciI6OTI4LjA2LCJlbmRfbWV0ZXIiOjk0OC4wOCwibWluaW11bV9jaGFyZ2VfdG90YWwiOjAsImJpbGxpbmdfdXNhZ2UiOjIwLjAyLCJ1c2FnZSI6MjAuMDIsInBhcmFtZXRlcl8xIjoiMjYiLCJwYXJhbWV0ZXJfMiI6IjI2IiwicGFyYW1ldGVyXzMiOiIzNSIsInByaWNlX3BhcmFtZXRlcl8xIjozMDAwLCJwcmljZV9wYXJhbWV0ZXJfMiI6MzUwMCwicHJpY2VfcGFyYW1ldGVyXzMiOjQwMDAsImFtb3VudF9wYXJhbWV0ZXJfMSI6NjAwNjAsImFtb3VudF9wYXJhbWV0ZXJfMiI6MCwiYW1vdW50X3BhcmFtZXRlcl8zIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMSI6MjAuMDIsInVzYWdlX3BhcmFtZXRlcl8yIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMyI6MCwiZHVlX2RhdGUiOm51bGwsImN1dF9kYXRlIjoiMjAyMy0xMS0wOSAwNzowMDowMCIsImludm9pY2UiOiJNQy5CTE9LIEUuOTYtSU5WLTA5MTEyMy0yMzhHIiwiZmFrdHVyIjpudWxsLCJpZF9wZWxhbmdnYW4iOiIiLCJ0ZW5hbnRfbmFtZSI6IkUgMyBOTy4xMS1QVC4gVFVOQVMgTUFKVSBNQU5ESVJJIiwiYmlsbGluZ19hZGRyZXNzIjoiRSAzIE5PLjExIn0
 
   useEffect(() => {
-    // generatePDF();
+    generatePDF();
 
     return () => {};
   }, []);
@@ -99,8 +93,6 @@ export const KwhComponent = () => {
           id_pelanggan: "",
           tenant_name: "E 3 NO.11-PT. TUNAS MAJU MANDIRI",
           billing_address: "E 3 NO.11",
-          dicount_kwh: 29151360,
-          dicount_kvarh: 4532896.8,
           export: {
             node_type: "ELECTRICITY 3 PHASE",
             start_date: "2023-10-25T18:30:00+08:00",
@@ -117,7 +109,20 @@ export const KwhComponent = () => {
             pemakian_kvarh: 251186,
             kelebihan_kvarh: 50365.52,
             daya: 5561,
+            // tambahan sendiri
+            pemakaian_kwh: 60006,
+            minimum_charge_total: 20650143,
+            kwh_price: 321356,
+            amount_kwh: 1236778,
+            kvarh_price: 231567,
+            amount_kvarh: 2315678,
           },
+          lain_lain2: [
+            "Pemakian minimum 60 jam : daya/1000 x 60 jam",
+            "900 kva x 60jam = 54000",
+            "Kelebihan pemakian KVARH",
+            "251186 - (0.62 x 323904) = 50365.52",
+          ],
         })
       )
     )
@@ -830,7 +835,7 @@ export const KwhComponent = () => {
                   </td>
                   <td
                     class={
-                      "border-solid border border-black text-xs font-semibold relative border-r-0"
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
                     }
                   >
                     <p
@@ -856,7 +861,7 @@ export const KwhComponent = () => {
                   </td> */}
                   <td
                     class={
-                      "border-solid border border-black text-xs font-semibold relative border-r-0"
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
                     }
                   >
                     <p
@@ -871,7 +876,7 @@ export const KwhComponent = () => {
                   </td>
                   <td
                     class={
-                      "border-solid border border-black text-xs font-semibold relative border-r-0"
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
                     }
                   >
                     <p
@@ -886,7 +891,7 @@ export const KwhComponent = () => {
                   </td>
                   <td
                     class={
-                      "border-solid border border-black text-xs font-semibold relative"
+                      "border-solid border border-black text-xs font-semibold relative border-t-0"
                     }
                   >
                     <p
@@ -999,6 +1004,19 @@ export const KwhComponent = () => {
                     </th>
                     <th
                       class={
+                        "border-solid border border-black border-b-0 border-r-0 text-xs relative"
+                      }
+                    >
+                      <p
+                        class={
+                          "font-normal ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                        }
+                      >
+                        Kelebihan Pemakaian
+                      </p>
+                    </th>
+                    <th
+                      class={
                         "border-solid border border-black border-b-0 text-xs relative"
                       }
                     >
@@ -1049,6 +1067,17 @@ export const KwhComponent = () => {
                       <p
                         class={
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                        }
+                      ></p>
+                    </td>
+                    <td
+                      class={
+                        "border-solid border border-black text-xs font-semibold relative border-r-0"
+                      }
+                    >
+                      <p
+                        class={
+                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       ></p>
                     </td>
@@ -1155,7 +1184,7 @@ export const KwhComponent = () => {
                     </td>
                     <td
                       class={
-                        "border-solid border border-black text-xs font-semibold relative border-t-0"
+                        "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
                       }
                     >
                       <p
@@ -1163,7 +1192,25 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberSm(parseFloat(data.kelebihan_kvarh))}
+                        {convertNumberSm(
+                          parseFloat(data.export.kelebihan_kvarh)
+                        )}
+                      </p>
+                    </td>
+                    <td
+                      class={
+                        "border-solid border border-black text-xs font-semibold relative border-t-0"
+                      }
+                    >
+                      <p
+                        class={
+                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                        }
+                      >
+                        {WeCurrencyWith00(data.export.kvarh_price)} x{" "}
+                        {convertNumberSm(
+                          parseFloat(data.export.kelebihan_kvarh)
+                        )}
                       </p>
                     </td>
                     {/* <td
@@ -1183,7 +1230,7 @@ export const KwhComponent = () => {
                           "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
                         }
                       >
-                        {WeCurrencyWith00(parseFloat(data.sub_total))}
+                        {WeCurrencyWith00(parseFloat(data.export.amount_kvarh))}
                       </p>
                     </td>
                   </tr>
@@ -1194,6 +1241,30 @@ export const KwhComponent = () => {
         </div>
 
         {/* section 5 */}
+        <div class={"mt-4 w-full pt-1 mb-4"}>
+          <table class={"w-full"}>
+            <tbody>
+              {data.lain_lain2
+                ? data.lain_lain2.map((v) => {
+                    return (
+                      <tr>
+                        <td class={"text-sm relative  pl-20"}>
+                          <p
+                            class={
+                              "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-left"
+                            }
+                          >
+                            {v}
+                          </p>
+                        </td>
+                      </tr>
+                    );
+                  })
+                : null}
+            </tbody>
+          </table>
+        </div>
+
         <div class={"mt-4 w-full pt-1 mb-4"}>
           <table class={"w-full"}>
             <tbody>
