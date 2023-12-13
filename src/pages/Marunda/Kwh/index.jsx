@@ -132,6 +132,102 @@ export const KwhComponent = () => {
         id="html-content-holder"
         className={"w-[800px] bg-white text-black py-6 px-6"}
       >
+        <div class={"header flex justify-between"}>
+          <div>
+            <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN AIR</h3>
+            <h4 class={"text-sm"}>Kepada Yth,</h4>
+            <h3 class={"font-bold text-sm"}>{data.tenant_name}</h3>
+          </div>
+          <div>
+            <h3 class={"text-xl font-bold text-right"}>Marunda Center</h3>
+            <table class={"mt-2 w-[400px] mb-2 "}>
+              <tbody>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-b-0 border-r-0 text-xs relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      No.Inv #
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs relative border-b-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      {data.invoice}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs relative border-r-0 border-b-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      No.F.Pajak
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs border-b-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      {data.faktur}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs relative border-r-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      No. Pelanggan
+                    </p>
+                  </td>
+                  <td
+                    class={"border-solid border border-black text-xs relative"}
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      {data.id_pelanggan}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
         <table class={"mt-4 w-[100%] mb-2"}>
           <thead>
             <tr>
