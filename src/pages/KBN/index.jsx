@@ -643,7 +643,7 @@ export function KBN() {
                         "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 right-1"
                       }
                     >
-                      {WeCurrencyWith00(data.sub_total).split("Rp").join("")}
+                      {WeCurrencyWith00(data.grandtotal).split("Rp").join("")}
                     </p>
                   </td>
                 </tr>
