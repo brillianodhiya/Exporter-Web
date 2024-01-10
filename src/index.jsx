@@ -1,10 +1,11 @@
 import { render } from "preact";
 import { LocationProvider, Router, Route } from "preact-iso";
 
-import { Header } from "./components/Header.jsx";
+// import { Header } from "./components/Header.jsx";
 import { Home } from "./pages/Home/index.jsx";
 import { Marunda } from "./pages/Marunda/index.jsx";
 import { KBN } from "./pages/KBN/index.jsx";
+import { KBNServerSide } from "./pages/KBN/ServerSide";
 import { KwhComponent } from "./pages/Marunda/Kwh/index.jsx";
 import { NotFound } from "./pages/_404.jsx";
 import "./style.css";
@@ -12,12 +13,13 @@ import "./style.css";
 export function App() {
   return (
     <LocationProvider>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Router>
           <Route path="/" component={Home} />
           <Route path="/marunda" component={Marunda} />
           <Route path="/kbn" component={KBN} />
+          <Route path="/kbn/ssr" component={KBNServerSide} />
           <Route path="/marunda/kwh" component={KwhComponent} />
           <Route default component={NotFound} />
         </Router>

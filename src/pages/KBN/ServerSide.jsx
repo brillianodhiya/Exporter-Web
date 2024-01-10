@@ -10,7 +10,7 @@ import {
 } from "../../components/utils/Converter";
 import angkaTerbilangJs from "@develoka/angka-terbilang-js";
 
-export function KBN() {
+export function KBNServerSide() {
   const [uri, setUri] = useState("");
   const params = query.parse(window.location.search);
 
@@ -55,7 +55,7 @@ export function KBN() {
   // eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJUYWdpaGFuIExhaW5ueWEgKDEwJSkiOjYwMDZ9LCJzdWJfdG90YWwiOjYwMDYwLCJncmFuZHRvdGFsIjo2NjA2NiwidW5pdCI6Im0zIiwic3RhcnRfZGF0ZSI6IjIwMjMtMTAtMzFUMTk6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjMtMTEtMDlUMDg6MDA6MDArMDg6MDAiLCJzdGFydF9tZXRlciI6OTI4LjA2LCJlbmRfbWV0ZXIiOjk0OC4wOCwibWluaW11bV9jaGFyZ2VfdG90YWwiOjAsImJpbGxpbmdfdXNhZ2UiOjIwLjAyLCJ1c2FnZSI6MjAuMDIsInBhcmFtZXRlcl8xIjoiMjYiLCJwYXJhbWV0ZXJfMiI6IjI2IiwicGFyYW1ldGVyXzMiOiIzNSIsInByaWNlX3BhcmFtZXRlcl8xIjozMDAwLCJwcmljZV9wYXJhbWV0ZXJfMiI6MzUwMCwicHJpY2VfcGFyYW1ldGVyXzMiOjQwMDAsImFtb3VudF9wYXJhbWV0ZXJfMSI6NjAwNjAsImFtb3VudF9wYXJhbWV0ZXJfMiI6MCwiYW1vdW50X3BhcmFtZXRlcl8zIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMSI6MjAuMDIsInVzYWdlX3BhcmFtZXRlcl8yIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMyI6MCwiZHVlX2RhdGUiOm51bGwsImN1dF9kYXRlIjoiMjAyMy0xMS0wOSAwNzowMDowMCIsImludm9pY2UiOiJNQy5CTE9LIEUuOTYtSU5WLTA5MTEyMy0yMzhHIiwiZmFrdHVyIjpudWxsLCJpZF9wZWxhbmdnYW4iOiIiLCJ0ZW5hbnRfbmFtZSI6IkUgMyBOTy4xMS1QVC4gVFVOQVMgTUFKVSBNQU5ESVJJIiwiYmlsbGluZ19hZGRyZXNzIjoiRSAzIE5PLjExIn0
 
   useEffect(() => {
-    generatePDF();
+    // generatePDF();
 
     return () => {};
   }, []);
@@ -105,9 +105,9 @@ export function KBN() {
   return (
     <div>
       <object
-        //    style="position: ml-1 leading-normal -mt-[6px] mb-[6px]; height: 100%"
+        //    style="position: ml-1 leading-normal; height: 100%"
         style={{
-          position: "absolute -mt-[6px] mb-[6px]",
+          position: "absolute",
           height: "100%",
         }}
         width="100%"
@@ -122,7 +122,7 @@ export function KBN() {
             <img
               class={"-mt-16 w-44 -ml-2"}
               src="/th-3879333870.jpg"
-              alt={"logo"}
+              alt={"logokbn"}
             />
             <div class={"timesfont text-center"}>
               <h3 class={"font-bold text-sm"}>PT. KAWASAN BERIKAT NUSANTARA</h3>
@@ -140,11 +140,7 @@ export function KBN() {
                         "border-solid border border-black border-b-0 text-xs relative"
                       }
                     >
-                      <p
-                        class={
-                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                        }
-                      >
+                      <p class={"ml-1 leading-normal bottom-2 left-1"}>
                         FM - 03 - 02
                       </p>
                     </td>
@@ -155,11 +151,7 @@ export function KBN() {
                         "border-solid border border-r-0 border-black text-xs relative"
                       }
                     >
-                      <p
-                        class={
-                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                        }
-                      >
+                      <p class={"ml-1 leading-normal bottom-2 left-1"}>
                         REVISI
                       </p>
                     </td>
@@ -168,13 +160,7 @@ export function KBN() {
                         "border-solid border border-black text-xs relative"
                       }
                     >
-                      <p
-                        class={
-                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                        }
-                      >
-                        00
-                      </p>
+                      <p class={"ml-1 leading-normal bottom-2 left-1"}>00</p>
                     </td>
                   </tr>
                 </tbody>
@@ -187,37 +173,23 @@ export function KBN() {
           </div>
           <div class={"flex justify-between mt-3"}>
             <div class={"border border-solid border-black w-[150px]"}>
-              <p
-                class={
-                  "ml-5 text-sm leading-normal -mt-[4px] mb-[12px] bottom-2 left-1"
-                }
-              >
+              <p class={"ml-5 text-sm leading-normal bottom-2 left-1"}>
                 Lokasi
               </p>
             </div>
             <div class={"border border-solid border-black w-[400px]"}>
-              <p
-                class={
-                  "ml-12 text-sm leading-normal -mt-[4px] mb-[12px] bottom-2 left-1"
-                }
-              >
+              <p class={"ml-12 text-sm leading-normal bottom-2 left-1"}>
                 Pelanggan: {data.tenant_name} <br />
                 Alamat: {data.billing_address}
               </p>
             </div>
             <div class={"border border-solid border-black w-[150px]"}>
-              <p
-                class={
-                  "ml-5 text-sm leading-normal -mt-[4px] mb-[12px] bottom-2 left-1"
-                }
-              >
-                NPWP
-              </p>
+              <p class={"ml-5 text-sm leading-normal bottom-2 left-1"}>NPWP</p>
             </div>
           </div>
 
           <div class={"mt-2 mx-4"}>
-            <p class={"ml-5 text-sm -mt-[4px] mb-[12px] bottom-2 left-1"}>
+            <p class={"ml-5 text-sm bottom-2 left-1 mb-2"}>
               Sehubungan dengan Penggunaan Air dalam rangka menunjang kegiatan,
               maka dengan ini kami harapkan perhatian saudara untuk melunasi
               untuk melunasi untuk melunasi tagihan berikut:
@@ -225,7 +197,7 @@ export function KBN() {
           </div>
 
           <div class={"border border-solid border-black"}>
-            <p class={"ml-5 text-sm -mt-[4px] mb-[12px] bottom-2 left-1"}>
+            <p class={"ml-5 text-sm bottom-2 left-1"}>
               I. DATA PENCATATAN METER AIR
             </p>
           </div>
@@ -239,13 +211,7 @@ export function KBN() {
                     }
                     rowSpan={2}
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      No
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>No</p>
                   </td>
                   <td
                     class={
@@ -254,9 +220,7 @@ export function KBN() {
                     rowSpan={2}
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       KETERANGAN
                     </p>
@@ -267,11 +231,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-b-0 border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>
                       PERIODE PEMAKAIAN
                     </p>
                   </td>
@@ -281,13 +241,7 @@ export function KBN() {
                       "border-solid border border-black border-b-0 text-xs relative text-center"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      Meter
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>Meter</p>
                   </td>
                 </tr>
                 <tr>
@@ -296,37 +250,21 @@ export function KBN() {
                       "text-center border-solid border border-black border-b-0 border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      Akhir
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>Akhir</p>
                   </td>
                   <td
                     class={
                       " text-center border-solid border border-black border-b-0 border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      Lalu
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>Lalu</p>
                   </td>
                   <td
                     class={
                       "text-center border-solid border border-black border-b-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>
                       Pemakaian
                     </p>
                   </td>
@@ -339,11 +277,7 @@ export function KBN() {
                       "border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 font-bold"
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-1 font-bold"}>
                       1
                     </p>
                   </td>
@@ -352,11 +286,7 @@ export function KBN() {
                       "border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       {data.tenant_name}
                     </p>
                   </td>
@@ -365,11 +295,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       {moment(data.start_date).format("DD-MM-YYYY")} s/d{" "}
                       {moment(data.end_date).format("DD-MM-YYYY")}
                     </p>
@@ -379,11 +305,7 @@ export function KBN() {
                       "text-right border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       {convertNumberSm(data.end_meter)}
                     </p>
                   </td>
@@ -392,11 +314,7 @@ export function KBN() {
                       "text-right border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       {convertNumberSm(data.start_meter)}
                     </p>
                   </td>
@@ -405,11 +323,7 @@ export function KBN() {
                       "text-right border-solid border border-black text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       {convertNumberSm(data.billing_usage)}
                     </p>
                   </td>
@@ -428,13 +342,7 @@ export function KBN() {
                     }
                     colSpan={4}
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      BIAYA
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>BIAYA</p>
                   </td>
                   <td
                     class={
@@ -442,13 +350,7 @@ export function KBN() {
                     }
                     rowSpan={2}
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
-                    >
-                      JUMLAH
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-1"}>JUMLAH</p>
                   </td>
                 </tr>
                 <tr>
@@ -457,11 +359,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       Pemakaian
                     </p>
                   </td>
@@ -470,24 +368,14 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
-                      Tetap
-                    </p>
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>Tetap</p>
                   </td>
                   <td
                     class={
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       Pemeliharaan
                     </p>
                   </td>
@@ -496,11 +384,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       Meterai
                     </p>
                   </td>
@@ -511,11 +395,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       ( Rp. )
                     </p>
                   </td>
@@ -524,11 +404,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       ( Rp. )
                     </p>
                   </td>
@@ -537,11 +413,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       ( Rp. )
                     </p>
                   </td>
@@ -550,11 +422,7 @@ export function KBN() {
                       "text-center border-solid border border-black border-r-0 text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 left-2 "}>
                       ( Rp. )
                     </p>
                   </td>
@@ -563,11 +431,7 @@ export function KBN() {
                       "text-center border-solid border border-black text-xs relative"
                     }
                   >
-                    <p
-                      class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 right-2 "
-                      }
-                    >
+                    <p class={"ml-1 leading-normal bottom-2 right-2 "}>
                       ( Rp. )
                     </p>
                   </td>
@@ -581,9 +445,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       {WeCurrencyWith00(data.sub_total).split("Rp").join("")}
                     </p>
@@ -594,9 +456,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       {WeCurrencyWith00(data.lain_lain["Biaya Tetap"])
                         .split("Rp")
@@ -609,9 +469,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       {WeCurrencyWith00(data.lain_lain["Biaya Pemeliharaan"])
                         .split("Rp")
@@ -624,9 +482,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       {WeCurrencyWith00(data.lain_lain["Materai"])
                         .split("Rp")
@@ -639,9 +495,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 right-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 right-1"}
                     >
                       {WeCurrencyWith00(data.grandtotal).split("Rp").join("")}
                     </p>
@@ -655,9 +509,7 @@ export function KBN() {
                     colSpan={4}
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 left-1"}
                     >
                       TOTAL
                     </p>
@@ -668,9 +520,7 @@ export function KBN() {
                     }
                   >
                     <p
-                      class={
-                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 right-1"
-                      }
+                      class={"text-center ml-1 leading-normal bottom-2 right-1"}
                     >
                       {WeCurrencyWith00(data.grandtotal).split("Rp").join("")}
                     </p>
@@ -684,11 +534,7 @@ export function KBN() {
                 "mt-4 ml-12 border border-solid border-black w-80 mb-10 px-4 py-8"
               }
             >
-              <p
-                class={
-                  "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 text-sm"
-                }
-              >
+              <p class={"ml-1 leading-normal bottom-2 left-2 text-sm"}>
                 Pembayaran dapat dilakukan melalui:
               </p>
               <ul class={"list-decimal list-outside ml-5"}>
