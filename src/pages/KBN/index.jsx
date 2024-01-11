@@ -6,7 +6,7 @@ import {
   WeCurrencyWith00,
   base64ToBase64Url,
   base64UrlToBase64,
-  convertNumberSm,
+  convertNumberSm2,
 } from "../../components/utils/Converter";
 import angkaTerbilangJs from "@develoka/angka-terbilang-js";
 
@@ -384,7 +384,7 @@ export function KBN() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
                       }
                     >
-                      {convertNumberSm(data.end_meter)}
+                      {convertNumberSm2(data.end_meter)}
                     </p>
                   </td>
                   <td
@@ -397,7 +397,7 @@ export function KBN() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
                       }
                     >
-                      {convertNumberSm(data.start_meter)}
+                      {convertNumberSm2(data.start_meter)}
                     </p>
                   </td>
                   <td
@@ -410,7 +410,7 @@ export function KBN() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
                       }
                     >
-                      {convertNumberSm(data.billing_usage)}
+                      {convertNumberSm2(data.billing_usage)}
                     </p>
                   </td>
                 </tr>
