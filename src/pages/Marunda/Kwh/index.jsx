@@ -134,7 +134,7 @@ export const KwhComponent = () => {
       >
         <div class={"header flex justify-between"}>
           <div>
-            <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN AIR</h3>
+            <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN KWH</h3>
             <h4 class={"text-sm"}>Kepada Yth,</h4>
             <h3 class={"font-bold text-sm"}>{data.tenant_name}</h3>
           </div>
@@ -454,7 +454,7 @@ export const KwhComponent = () => {
             Daya : {data?.export.daya} {data?.satuan}
           </h4>
           <h4 class={" text-xs"}>
-            Pencatatan Meteran Air Periode{" "}
+            Pencatatan Meteran KWH Periode{" "}
             {moment(data.cut_date).format("MMMM YYYY")}
           </h4>
         </div>
@@ -1443,6 +1443,15 @@ export const KwhComponent = () => {
             {/* <br /> */}
             pada bulan brikutnya apabila pembayaran dilakukan lebih dari tanggal
             20
+          </h4>
+          <h4 class={"mb-2 text-xs"}>
+            * Pembayaran dengan transfer ke Rekening:{" "}
+            <span class={"text-sm font-bold italic"}>7100.8888.01</span> atas
+            nama{" "}
+            <span class={"text-sm font-bold italic"}>
+              PT. GLOBAL CITRA PRIMAKARYA
+            </span>{" "}
+            <br /> BCA , Cabang Tiang Bendera, Jakarta.
           </h4>
         </div>
       </div>
