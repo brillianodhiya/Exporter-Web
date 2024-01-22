@@ -663,7 +663,176 @@ export function Marunda() {
                         "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
                       }
                     >
-                      {WeCurrencyWith00(parseFloat(data.sub_total))}
+                      {}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <table class={"mt-4 w-full mb-2"}>
+              <thead>
+                <tr class={"font-normal"}>
+                  <th
+                    class={
+                      "border-solid border border-black border-b-0 text-xs relative"
+                    }
+                    colSpan={2}
+                  >
+                    <p
+                      class={
+                        "font-normal ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      Harga Bertingkat
+                    </p>
+                  </th>
+
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {"<"} {data.parameter_1}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {convertNumberSm(parseFloat(data.usage_parameter_1))}
+                    </p>
+                  </td>
+
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_1))}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_1))}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {">="} {data.parameter_2}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {convertNumberSm(parseFloat(data.usage_parameter_2))}
+                    </p>
+                  </td>
+
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_2))}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_2))}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {">="} {data.parameter_3}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {convertNumberSm(parseFloat(data.usage_parameter_3))}
+                    </p>
+                  </td>
+
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_3))}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_3))}
                     </p>
                   </td>
                 </tr>
@@ -675,6 +844,26 @@ export function Marunda() {
           <div class={"mt-4 w-full pt-1 mb-4"}>
             <table class={"w-full"}>
               <tbody>
+                <tr>
+                  <td class={"text-sm relative w-[77%]"}>
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[8px] mb-[8px] bottom-2 left-1 text-left"
+                      }
+                    >
+                      Sub Total
+                    </p>
+                  </td>
+                  <td class={"text-xs relative border-r-0"}>
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.sub_total))}
+                    </p>
+                  </td>
+                </tr>
                 {data.lain_lain
                   ? Object.keys(data.lain_lain).map((v) => {
                       return (
