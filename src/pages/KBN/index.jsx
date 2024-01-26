@@ -55,11 +55,10 @@ export function KBN() {
   // eyJpZCI6NjE3NDUsImxhaW5fbGFpbiI6eyJUYWdpaGFuIExhaW5ueWEgKDEwJSkiOjYwMDZ9LCJzdWJfdG90YWwiOjYwMDYwLCJncmFuZHRvdGFsIjo2NjA2NiwidW5pdCI6Im0zIiwic3RhcnRfZGF0ZSI6IjIwMjMtMTAtMzFUMTk6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjMtMTEtMDlUMDg6MDA6MDArMDg6MDAiLCJzdGFydF9tZXRlciI6OTI4LjA2LCJlbmRfbWV0ZXIiOjk0OC4wOCwibWluaW11bV9jaGFyZ2VfdG90YWwiOjAsImJpbGxpbmdfdXNhZ2UiOjIwLjAyLCJ1c2FnZSI6MjAuMDIsInBhcmFtZXRlcl8xIjoiMjYiLCJwYXJhbWV0ZXJfMiI6IjI2IiwicGFyYW1ldGVyXzMiOiIzNSIsInByaWNlX3BhcmFtZXRlcl8xIjozMDAwLCJwcmljZV9wYXJhbWV0ZXJfMiI6MzUwMCwicHJpY2VfcGFyYW1ldGVyXzMiOjQwMDAsImFtb3VudF9wYXJhbWV0ZXJfMSI6NjAwNjAsImFtb3VudF9wYXJhbWV0ZXJfMiI6MCwiYW1vdW50X3BhcmFtZXRlcl8zIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMSI6MjAuMDIsInVzYWdlX3BhcmFtZXRlcl8yIjowLCJ1c2FnZV9wYXJhbWV0ZXJfMyI6MCwiZHVlX2RhdGUiOm51bGwsImN1dF9kYXRlIjoiMjAyMy0xMS0wOSAwNzowMDowMCIsImludm9pY2UiOiJNQy5CTE9LIEUuOTYtSU5WLTA5MTEyMy0yMzhHIiwiZmFrdHVyIjpudWxsLCJpZF9wZWxhbmdnYW4iOiIiLCJ0ZW5hbnRfbmFtZSI6IkUgMyBOTy4xMS1QVC4gVFVOQVMgTUFKVSBNQU5ESVJJIiwiYmlsbGluZ19hZGRyZXNzIjoiRSAzIE5PLjExIn0
 
   useEffect(() => {
-    generatePDF();
+    // generatePDF();
 
     return () => {};
   }, []);
-  // console.log(data.lain_lain);
   // console.log(
   //   base64ToBase64Url(
   //     btoa(
@@ -211,7 +210,8 @@ export function KBN() {
                   "ml-5 text-sm leading-normal -mt-[4px] mb-[12px] bottom-2 left-1"
                 }
               >
-                NPWP
+                NPWP <br />
+                {data.npwp}
               </p>
             </div>
           </div>
@@ -259,6 +259,34 @@ export function KBN() {
                       }
                     >
                       KETERANGAN
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black border-b-0 border-r-0 text-xs relative"
+                    }
+                    rowSpan={2}
+                  >
+                    <p
+                      class={
+                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      ID PELANGGAN
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black border-b-0 border-r-0 text-xs relative"
+                    }
+                    rowSpan={2}
+                  >
+                    <p
+                      class={
+                        "text-center ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
+                      }
+                    >
+                      SERIAL NUMBER
                     </p>
                   </td>
                   <td
@@ -358,6 +386,32 @@ export function KBN() {
                       }
                     >
                       {data.tenant_name}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 text-xs relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
+                      }
+                    >
+                      {data.id_pelanggan}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 text-xs relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-2 "
+                      }
+                    >
+                      {data.meter_id}
                     </p>
                   </td>
                   <td
@@ -721,15 +775,15 @@ export function KBN() {
               <br />
               <br />
               <h4>JATUH TEMPO PEMBAYARAN</h4>
-              Tanggal {moment(data.cut_date).format("DD-MM-YYYY")}
+              Tanggal {moment(data.jatuh_tempo).format("DD-MM-YYYY")}
             </div>
             <div class={"text-xs mt-4 -mr-[300px] text-center mb-8"}>
               <h4>Jakarta, {moment(data.cut_date).format("DD-MM-YYYY")}</h4>
               <h4>GM. SBU Pengelolaan Air</h4>
 
               <div class={"mt-12"}>
-                <h4 class={"underline"}>Rinang P Brata</h4>
-                <h4>NPP. 067171075</h4>
+                <h4 class={"underline"}>{data.pic}</h4>
+                <h4>NPP. {data.no_npp}</h4>
               </div>
             </div>
             <div class={"opacity-0 mt-20"}>TEST</div>
