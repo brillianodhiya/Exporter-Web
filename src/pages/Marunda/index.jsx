@@ -179,7 +179,7 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        {data.faktur}
+                        {/* {data.faktur} */}080.
                       </p>
                     </td>
                   </tr>
@@ -207,7 +207,7 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        {data.id_pelanggan}
+                        {data.billing_address}
                       </p>
                     </td>
                   </tr>
@@ -508,7 +508,7 @@ export function Marunda() {
                         "font-normal ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      Total <br /> Pemakaian
+                      Tarif
                     </p>
                   </th>
                   <th></th>
@@ -568,31 +568,40 @@ export function Marunda() {
                     class={
                       "border-solid border border-black text-xs font-semibold relative border-r-0"
                     }
-                    rowSpan={2}
                   >
                     <p
                       class={
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.minimum_charge_total))}
+                      {/* {convertNumberSm(parseFloat(data.minimum_charge_total))} */}
                     </p>
                   </td>
                   <td
                     class={
                       "border-solid border border-black text-xs font-semibold relative"
                     }
-                    rowSpan={2}
                   >
                     <p
                       class={
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.usage))}
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {WeCurrencyWith00(
+                        parseFloat(data.price_parameter_1)
+                      )} x {convertNumberSm(parseFloat(data.usage_parameter_1))} */}
                     </p>
                   </td>
-                  <td></td>
+                  <td class={"text-xs font-semibold relative"}>
+                    <p
+                      class={
+                        "leading-normal -mt-[6px] mb-[6px] bottom-2 text-right font-bold"
+                      }
+                    >
+                      {/* {WeCurrencyWith00(parseFloat(data.amount_parameter_1))} */}
+                    </p>
+                  </td>
                 </tr>
                 <tr>
                   <td
@@ -639,10 +648,123 @@ export function Marunda() {
                   >
                     <p
                       class={
-                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
                       {convertNumberSm(parseFloat(data.usage))}
+                    </p>
+                  </td>
+
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {convertNumberSm(parseFloat(data.minimum_charge_total))}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(
+                        parseFloat(data.price_parameter_1)
+                      )} x {convertNumberSm(parseFloat(data.usage_parameter_1))}
+                    </p>
+                  </td>
+                  <td class={"text-xs font-semibold relative"}>
+                    <p
+                      class={
+                        "leading-normal -mt-[6px] mb-[6px] bottom-2 text-right"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_1))}
+                    </p>
+                  </td>
+                  {/* <td>
+                    <p
+                      class={
+                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                      }
+                    >
+                      {}
+                    </p>
+                  </td> */}
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 border-t-0 text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {moment(data.end_date).format("DD MMM YY")} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    ></p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.end_meter))} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
                     </p>
                   </td>
 
@@ -657,13 +779,131 @@ export function Marunda() {
                       }
                     ></p>
                   </td> */}
-                  <td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-t-0"
+                    }
+                  >
                     <p
                       class={
-                        "text-right ml-1 leading-normal -mt-[6px] mb-[6px] text-xs font-semibold bottom-2 left-1"
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {}
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(
+                        parseFloat(data.price_parameter_2)
+                      )} x {convertNumberSm(parseFloat(data.usage_parameter_2))}
+                    </p>
+                  </td>
+                  <td class={"text-xs font-semibold relative"}>
+                    <p
+                      class={
+                        "leading-normal -mt-[6px] mb-[6px] bottom-2 text-right"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_2))}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class={
+                      "border-solid border border-black border-r-0 border-t-0 text-xs font-semibold relative"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {moment(data.end_date).format("DD MMM YY")} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    ></p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.end_meter))} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                    </p>
+                  </td>
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                    </p>
+                  </td>
+
+                  {/* <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-t-0"
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                      }
+                    ></p>
+                  </td> */}
+                  <td
+                    class={
+                      "border-solid border border-black text-xs font-semibold relative border-t-0 "
+                    }
+                  >
+                    <p
+                      class={
+                        "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                      }
+                    >
+                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(
+                        parseFloat(data.price_parameter_3)
+                      )} x {convertNumberSm(parseFloat(data.usage_parameter_3))}
+                    </p>
+                  </td>
+                  <td class={"text-xs font-semibold relative"}>
+                    <p
+                      class={
+                        "leading-normal -mt-[6px] mb-[6px] bottom-2 text-right"
+                      }
+                    >
+                      {WeCurrencyWith00(parseFloat(data.amount_parameter_3))}
                     </p>
                   </td>
                 </tr>
@@ -671,7 +911,7 @@ export function Marunda() {
             </table>
           </div>
 
-          <div>
+          {/* <div>
             <table class={"mt-4 w-full mb-2"}>
               <thead>
                 <tr class={"font-normal"}>
@@ -838,7 +1078,7 @@ export function Marunda() {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> */}
 
           {/* section 5 */}
           <div class={"mt-4 w-full pt-1 mb-4"}>
