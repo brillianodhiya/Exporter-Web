@@ -19,7 +19,18 @@ export const KwhComponent = () => {
   //   due_date: "2021-08-10T00:00:00.000Z",
   //   grandtotal: 0,
   // });
+  function cekKandungan(stringA, stringB) {
+    // Mengubah kedua string menjadi huruf kecil untuk memudahkan perbandingan
+    stringA = stringA.toLowerCase();
+    stringB = stringB.toLowerCase();
 
+    // Menggunakan metode indexOf() untuk memeriksa apakah stringB terdapat dalam stringA
+    if (stringA.indexOf(stringB) !== -1) {
+      return true; // Jika stringB ditemukan di dalam stringA
+    } else {
+      return false; // Jika stringB tidak ditemukan di dalam stringA
+    }
+  }
   const getdata = () => {
     const data = JSON.parse(atob(base64UrlToBase64(params.data)));
     if (!!data && !!data.url) {
@@ -134,12 +145,15 @@ export const KwhComponent = () => {
       >
         <div class={"header flex justify-between"}>
           <div>
-            <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN KWH</h3>
+            <h3 class={"font-bold text-sm"}>INFORMASI TAGIHAN LISTRIK</h3>
             <h4 class={"text-sm"}>Kepada Yth,</h4>
             <h3 class={"font-bold text-sm"}>{data.tenant_name}</h3>
           </div>
           <div>
-            <h3 class={"text-xl font-bold text-right"}>Marunda Center</h3>
+            <h4 class={"text-xl font-bold text-right"}>
+              PT. GLOBAL CITRA PRIMAKARYA
+            </h4>
+            <h3 class={"text-lg font-bold text-right"}>Marunda Center</h3>
             <table class={"mt-2 w-[400px] mb-2 "}>
               <tbody>
                 <tr>
@@ -194,7 +208,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                       }
                     >
-                      {data.faktur}
+                      {"080."}
                     </p>
                   </td>
                 </tr>
@@ -270,7 +284,7 @@ export const KwhComponent = () => {
                   No. Kotak KVARH
                 </p>
               </td> */}
-              <td
+              {/* <td
                 class={
                   "border-solid border border-black border-b-0 border-r-0 text-xs relative"
                 }
@@ -282,7 +296,7 @@ export const KwhComponent = () => {
                 >
                   No. Tagihan
                 </p>
-              </td>
+              </td> */}
               <td
                 class={
                   "border-solid border border-black border-b-0 border-r-0 text-xs relative"
@@ -363,7 +377,7 @@ export const KwhComponent = () => {
                   }
                 ></p>
               </td> */}
-              <td
+              {/* <td
                 class={
                   "border-solid border border-black text-xs relative border-r-0"
                 }
@@ -375,7 +389,7 @@ export const KwhComponent = () => {
                 >
                   {data.invoice}
                 </p>
-              </td>
+              </td> */}
               <td
                 class={
                   "border-solid border border-black text-xs relative border-r-0"
@@ -450,9 +464,7 @@ export const KwhComponent = () => {
 
         {/* section 3  */}
         <div class={"w-full mt-5 mb-7"}>
-          <h4 class={" text-xs"}>
-            Daya : {data?.export.daya} {data?.satuan}
-          </h4>
+          <h4 class={" text-xs"}>Daya : {data?.export.daya}</h4>
           <h4 class={" text-xs"}>
             Pencatatan Meteran KWH Periode{" "}
             {moment(data.cut_date).format("MMMM YYYY")}
@@ -1390,7 +1402,13 @@ export const KwhComponent = () => {
                               "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-right font-semibold"
                             }
                           >
-                            {WeCurrencyWith00(data.lain_lain[v])}
+                            {cekKandungan(v, "Discount") ? (
+                              <span class={"text-red-500"}>
+                                {`(${WeCurrencyWith00(data.lain_lain[v])})`}
+                              </span>
+                            ) : (
+                              WeCurrencyWith00(data.lain_lain[v])
+                            )}
                           </p>
                         </td>
                       </tr>

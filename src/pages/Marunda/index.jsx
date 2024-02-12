@@ -2,6 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import html2pdf from "html2pdf.js";
 import query from "query-string";
 import moment from "moment";
+import angkaTerbilang from "@develoka/angka-terbilang-js";
 import {
   WeCurrencyWith00,
   base64ToBase64Url,
@@ -124,7 +125,10 @@ export function Marunda() {
               <h3 class={"font-bold text-sm"}>{data.tenant_name}</h3>
             </div>
             <div>
-              <h3 class={"text-xl font-bold text-right"}>Marunda Center</h3>
+              <h4 class={"text-xl font-bold text-right"}>
+                PT. GLOBAL CITRA PRIMAKARYA
+              </h4>
+              <h3 class={"text-lg font-bold text-right"}>Marunda Center</h3>
               <table class={"mt-2 w-[400px] mb-2 "}>
                 <tbody>
                   <tr>
@@ -233,6 +237,19 @@ export function Marunda() {
                     Blok
                   </p>
                 </td>
+                <td
+                  class={
+                    "border-solid border border-black border-b-0 border-r-0 text-xs relative"
+                  }
+                >
+                  <p
+                    class={
+                      "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                    }
+                  >
+                    Diameter Pipa
+                  </p>
+                </td>
                 {/* <td
                   class={
                     "border-solid border border-black border-b-0 border-r-0 text-xs relative"
@@ -313,6 +330,19 @@ export function Marunda() {
                     }
                   >
                     {data.billing_address}
+                  </p>
+                </td>
+                <td
+                  class={
+                    "border-solid border border-black border-r-0 text-xs relative"
+                  }
+                >
+                  <p
+                    class={
+                      "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
+                    }
+                  >
+                    {data.pipa ? data.pipa : ""}
                   </p>
                 </td>
                 {/* <td
@@ -1252,6 +1282,19 @@ export function Marunda() {
 
           {/* section 7 */}
           <div class={"pb-4"}>
+            <h4 class={"mb-2 text-xs font-bold"}>
+              Terbilang:{" "}
+              <i class={"capitalize"}>
+                {angkaTerbilang(data.grandtotal)} rupiah{" "}
+              </i>
+            </h4>
+            <h4 class={"mb-2 text-xs"}>
+              * Tagihan harus sudah dibayar paling lambat tanggal 20 tiap bulan.
+              Dnda akan dikenakan sebesar 5(Lima )% dari total tagihan
+              {/* <br /> */}
+              pada bulan brikutnya apabila pembayaran dilakukan lebih dari
+              tanggal 20
+            </h4>
             <h4 class={"mb-2 text-xs"}>
               * Pembayaran dengan transfer ke Rekening:{" "}
               <span class={"text-sm font-bold italic"}>7100.8888.01</span> atas
