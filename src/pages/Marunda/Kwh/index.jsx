@@ -234,7 +234,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                       }
                     >
-                      {data.id_pelanggan}
+                      {data.billing_address}
                     </p>
                   </td>
                 </tr>
