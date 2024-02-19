@@ -350,7 +350,7 @@ export const KwhComponent = () => {
                     "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                   }
                 >
-                  {data.billing_address}
+                  {data.export.cust_id}
                 </p>
               </td>
               {/* <td
@@ -990,9 +990,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(
-                        parseFloat(data.export.billing_pemakian_kwh)
-                      )}
+                      {convertNumberSm(parseFloat(data.export.pemakian_kwh))}
                     </p>
                   </td>
                   <td
