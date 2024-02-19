@@ -350,7 +350,7 @@ export const KwhComponent = () => {
                     "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                   }
                 >
-                  {data.iot_tenant.address}
+                  {data.export.address}
                 </p>
               </td>
               {/* <td
