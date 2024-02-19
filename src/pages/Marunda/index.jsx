@@ -211,7 +211,7 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        {data.billing_address}
+                        {data.export.cust_id}
                       </p>
                     </td>
                   </tr>
@@ -329,7 +329,7 @@ export function Marunda() {
                       "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                     }
                   >
-                    {data.export.cust_id}
+                    {data.iot_tenant.address}
                   </p>
                 </td>
                 <td
