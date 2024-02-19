@@ -1093,7 +1093,7 @@ export const KwhComponent = () => {
                         Pemakaian
                       </p>
                     </th>
-                    <th
+                    {/* <th
                       class={
                         "border-solid border border-black border-b-0 border-r-0 text-xs relative"
                       }
@@ -1118,7 +1118,7 @@ export const KwhComponent = () => {
                       >
                         Kelebihan Pemakaian
                       </p>
-                    </th>
+                    </th> */}
                     <th
                       class={
                         "border-solid border border-black border-b-0 text-xs relative"
@@ -1187,28 +1187,6 @@ export const KwhComponent = () => {
                     </td>
                     <td
                       class={
-                        "border-solid border border-black text-xs font-semibold relative border-r-0"
-                      }
-                    >
-                      <p
-                        class={
-                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
-                        }
-                      ></p>
-                    </td>
-                    <td
-                      class={
-                        "border-solid border border-black text-xs font-semibold relative border-r-0"
-                      }
-                    >
-                      <p
-                        class={
-                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
-                        }
-                      ></p>
-                    </td>
-                    <td
-                      class={
                         "border-solid border border-black text-xs font-semibold relative"
                       }
                     >
@@ -1218,6 +1196,28 @@ export const KwhComponent = () => {
                         }
                       ></p>
                     </td>
+                    {/* <td
+                      class={
+                        "border-solid border border-black text-xs font-semibold relative border-r-0"
+                      }
+                    >
+                      <p
+                        class={
+                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                        }
+                      ></p>
+                    </td> */}
+                    {/* <td
+                      class={
+                        "border-solid border border-black text-xs font-semibold relative"
+                      }
+                    >
+                      <p
+                        class={
+                          "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
+                        }
+                      ></p>
+                    </td> */}
                     <td></td>
                   </tr>
                   <tr>
@@ -1273,7 +1273,7 @@ export const KwhComponent = () => {
                         )}
                       </p>
                     </td>
-                    <td
+                    {/* <td
                       class={
                         "border-solid border border-black text-xs font-semibold relative border-r-0 border-t-0"
                       }
@@ -1300,7 +1300,7 @@ export const KwhComponent = () => {
                           parseFloat(data.export.kelebihan_kvarh)
                         )}
                       </p>
-                    </td>
+                    </td> */}
                     <td
                       class={
                         "border-solid border border-black text-xs font-semibold relative border-t-0"
