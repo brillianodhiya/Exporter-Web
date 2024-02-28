@@ -104,3 +104,9 @@ export const convertNumberSm2 = (number) => {
   //     return new Intl.NumberFormat("id-ID").format(number);
   //   } // }
 };
+
+export const convertNumberFloatingDotToComma = (number) => {
+  return number.toString().replace(/[.,]/g, function (x) {
+    return x == "," ? "." : ",";
+  });
+};

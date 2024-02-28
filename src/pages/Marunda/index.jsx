@@ -6,7 +6,7 @@ import {
   WeCurrencyWith00,
   base64ToBase64Url,
   base64UrlToBase64,
-  convertNumberSm,
+  convertNumberFloatingDotToComma,
 } from "../../components/utils/Converter";
 
 export function Marunda() {
@@ -59,47 +59,50 @@ export function Marunda() {
     return () => {};
   }, []);
 
-  console.log(
-    base64ToBase64Url(
-      btoa(
-        JSON.stringify({
-          id: 61745,
-          lain_lain: {
-            "Tagihan Lainnya (10%)": 6006,
-          },
-          sub_total: 60060,
-          grandtotal: 66066,
-          unit: "m3",
-          start_date: "2023-10-31T19:00:00+08:00",
-          end_date: "2023-11-09T08:00:00+08:00",
-          start_meter: 928.06,
-          end_meter: 948.08,
-          minimum_charge_total: 0,
-          billing_usage: 20.02,
-          usage: 20.02,
-          parameter_1: "26",
-          parameter_2: "26",
-          parameter_3: "35",
-          price_parameter_1: 3000,
-          price_parameter_2: 3500,
-          price_parameter_3: 4000,
-          amount_parameter_1: 60060,
-          amount_parameter_2: 0,
-          amount_parameter_3: 0,
-          usage_parameter_1: 20.02,
-          usage_parameter_2: 0,
-          usage_parameter_3: 0,
-          due_date: null,
-          cut_date: "2023-11-09 07:00:00",
-          invoice: "MC.BLOK E.96-INV-091123-238G",
-          faktur: null,
-          id_pelanggan: "",
-          tenant_name: "E 3 NO.11-PT. TUNAS MAJU MANDIRI",
-          billing_address: "E 3 NO.11",
-        })
-      )
-    )
-  );
+  // console.log(data, "data");
+
+  // http://localhost:5173/marunda?data=eyJpZCI6MTMzOCwibGFpbl9sYWluIjp7IlRhZ2loYW4gTGFpbm55YSAoMTAlKSI6OTQyMTA1Ljh9LCJzdWJfdG90YWwiOjk0MjEwNTgsImdyYW5kdG90YWwiOjEwMzYzMTY0LCJzdGFydF9kYXRlIjoiMjAyNC0wMS0wMVQxMTowMDowMCswODowMCIsImVuZF9kYXRlIjoiMjAyNC0wMi0wMVQxMTowMDowMCswODowMCIsInN0YXJ0X21ldGVyIjoyMjkzLjgxLCJlbmRfbWV0ZXIiOjI4MjIuNzYsIm1pbmltdW1fY2hhcmdlX3RvdGFsIjoyNSwiYmlsbGluZ191c2FnZSI6NTI4Ljk1LCJ1c2FnZSI6NTI4Ljk1LCJwYXJhbWV0ZXJfMSI6IjI1IiwicGFyYW1ldGVyXzIiOiIyNiIsInBhcmFtZXRlcl8zIjoiMzEiLCJwcmljZV9wYXJhbWV0ZXJfMSI6MTU1ODAsInByaWNlX3BhcmFtZXRlcl8yIjoxNTU4MCwicHJpY2VfcGFyYW1ldGVyXzMiOjE3OTQ1LCJhbW91bnRfcGFyYW1ldGVyXzEiOjM4OTUwMCwiYW1vdW50X3BhcmFtZXRlcl8yIjo3NzkwMCwiYW1vdW50X3BhcmFtZXRlcl8zIjo4OTUzNjU4LCJ1c2FnZV9wYXJhbWV0ZXJfMSI6MjUsInVzYWdlX3BhcmFtZXRlcl8yIjo1LCJ1c2FnZV9wYXJhbWV0ZXJfMyI6NDk4Ljk1LCJkdWVfZGF0ZSI6IjIwLUZlYi0yNCIsImN1dF9kYXRlIjoiMjAyNC0wMi0wMSAxMDowMDowMCIsImludm9pY2UiOiJJTlYvR0NQL1dUUi8wMS8yMDI0LzI1IiwiaWRfcGVsYW5nZ2FuIjoiIiwidGVuYW50X25hbWUiOiJBMyBOTy4xMkEgLSBQVC4gREpBU0EgU1VNQVRFUkEiLCJiaWxsaW5nX2FkZHJlc3MiOiJDMTEzMiIsInBpcGEiOiIwLjVcIiIsImV4cG9ydCI6eyJjdXN0X2lkIjoiQzExMzIiLCJhZGRyZXNzIjoiQkxPSyBBMyBOTy4xMkFcbiIsIm5vZGVfdHlwZSI6IldBVEVSIiwicGVyaW9kZV9iaWxsaW5nIjoiMjAyNC0wMSIsImRheWEiOiIwIiwic3RhcnRfZGF0ZSI6IjIwMjQtMDEtMDFUMTE6MDA6MDArMDg6MDAiLCJlbmRfZGF0ZSI6IjIwMjQtMDItMDFUMTE6MDA6MDArMDg6MDAiLCJsd2JwX2F3YWwiOjAsImx3YnBfYWtoaXIiOjAsIndicF9hd2FsIjowLCJ3YnBfYWtoaXIiOjAsImt3aF9hd2FsIjowLCJrd2hfYWtoaXIiOjAsInBlbWFraWFuX2t3aCI6MCwiYmlsbGluZ19wZW1ha2lhbl9rd2giOjAsImt2YXJoX2F3YWwiOjAsImt2YXJoX2FraGlyIjowLCJwZW1ha2lhbl9rdmFyaCI6MCwia2VsZWJpaGFuX2t2YXJoIjowLCJtaW5pbXVtX2NoYXJnZV90b3RhbCI6MjUsImt3aF9wcmljZSI6MH19
+  // console.log(
+  //   base64ToBase64Url(
+  //     btoa(
+  //       JSON.stringify({
+  //         id: 61745,
+  //         lain_lain: {
+  //           "Tagihan Lainnya (10%)": 6006,
+  //         },
+  //         sub_total: 60060,
+  //         grandtotal: 66066,
+  //         unit: "m3",
+  //         start_date: "2023-10-31T19:00:00+08:00",
+  //         end_date: "2023-11-09T08:00:00+08:00",
+  //         start_meter: 928.06,
+  //         end_meter: 948.08,
+  //         minimum_charge_total: 0,
+  //         billing_usage: 20.02,
+  //         usage: 20.02,
+  //         parameter_1: "26",
+  //         parameter_2: "26",
+  //         parameter_3: "35",
+  //         price_parameter_1: 3000,
+  //         price_parameter_2: 3500,
+  //         price_parameter_3: 4000,
+  //         amount_parameter_1: 60060,
+  //         amount_parameter_2: 0,
+  //         amount_parameter_3: 0,
+  //         usage_parameter_1: 20.02,
+  //         usage_parameter_2: 0,
+  //         usage_parameter_3: 0,
+  //         due_date: null,
+  //         cut_date: "2023-11-09 07:00:00",
+  //         invoice: "MC.BLOK E.96-INV-091123-238G",
+  //         faktur: null,
+  //         id_pelanggan: "",
+  //         tenant_name: "E 3 NO.11-PT. TUNAS MAJU MANDIRI",
+  //         billing_address: "E 3 NO.11",
+  //       })
+  //     )
+  //   )
+  // );
 
   return (
     <div>
@@ -424,7 +427,7 @@ export function Marunda() {
           <div class={"w-full mt-5 mb-7"}>
             <h4 class={"font-bold text-sm"}>
               Pencatatan Meteran Air Periode{" "}
-              {moment(data.cut_date).format("MMMM YYYY")}
+              {moment(data.export.periode_billing).format("MMMM YYYY")}
             </h4>
           </div>
 
@@ -539,7 +542,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.start_meter))}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.start_meter)
+                      )}
                     </p>
                   </td>
                   <td
@@ -574,7 +579,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.minimum_charge_total))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.minimum_charge_total))} */}
                     </p>
                   </td>
                   <td
@@ -587,10 +592,10 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
                       {/* {WeCurrencyWith00(
                         parseFloat(data.price_parameter_1)
-                      )} x {convertNumberSm(parseFloat(data.usage_parameter_1))} */}
+                      )} x {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_1))} */}
                     </p>
                   </td>
                   <td class={"text-xs font-semibold relative"}>
@@ -638,7 +643,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.end_meter))}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.end_meter)
+                      )}
                     </p>
                   </td>
                   <td
@@ -651,7 +658,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.usage))}
+                      {convertNumberFloatingDotToComma(parseFloat(data.usage))}
                     </p>
                   </td>
 
@@ -665,7 +672,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.minimum_charge_total))}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.minimum_charge_total)
+                      )}
                     </p>
                   </td>
                   <td
@@ -678,10 +687,11 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
-                      {WeCurrencyWith00(
-                        parseFloat(data.price_parameter_1)
-                      )} x {convertNumberSm(parseFloat(data.usage_parameter_1))}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_1))} x{" "}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.usage_parameter_1)
+                      )}
                     </p>
                   </td>
                   <td class={"text-xs font-semibold relative"}>
@@ -738,7 +748,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.end_meter))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.end_meter))} */}
                     </p>
                   </td>
                   <td
@@ -751,7 +761,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
                     </p>
                   </td>
                   <td
@@ -764,7 +774,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
                     </p>
                   </td>
 
@@ -789,10 +799,11 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
-                      {WeCurrencyWith00(
-                        parseFloat(data.price_parameter_2)
-                      )} x {convertNumberSm(parseFloat(data.usage_parameter_2))}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_2))} x{" "}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.usage_parameter_2)
+                      )}
                     </p>
                   </td>
                   <td class={"text-xs font-semibold relative"}>
@@ -840,7 +851,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.end_meter))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.end_meter))} */}
                     </p>
                   </td>
                   <td
@@ -853,7 +864,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
                     </p>
                   </td>
                   <td
@@ -866,7 +877,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
                     </p>
                   </td>
 
@@ -891,10 +902,11 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberSm(parseFloat(data.usage))} */}
-                      {WeCurrencyWith00(
-                        parseFloat(data.price_parameter_3)
-                      )} x {convertNumberSm(parseFloat(data.usage_parameter_3))}
+                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {WeCurrencyWith00(parseFloat(data.price_parameter_3))} x{" "}
+                      {convertNumberFloatingDotToComma(
+                        parseFloat(data.usage_parameter_3)
+                      )}
                     </p>
                   </td>
                   <td class={"text-xs font-semibold relative"}>
@@ -959,7 +971,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.usage_parameter_1))}
+                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_1))}
                     </p>
                   </td>
 
@@ -1006,7 +1018,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.usage_parameter_2))}
+                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_2))}
                     </p>
                   </td>
 
@@ -1053,7 +1065,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberSm(parseFloat(data.usage_parameter_3))}
+                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_3))}
                     </p>
                   </td>
 
