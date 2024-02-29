@@ -110,3 +110,22 @@ export const convertNumberFloatingDotToComma = (number) => {
     return x == "," ? "." : ",";
   });
 };
+
+export const convertNumberFloatingDotToCommav2 = (number) => {
+  const formattedNumber = parseFloat(number);
+  const parts = formattedNumber.toString().split(".");
+  if (parts[1] != null) {
+    let dec = [];
+    for (let i = 0; i < parts[1].length; i++) {
+      const element = parts[1][i];
+      dec.push(element);
+      if (i == 1) break;
+    }
+    dec = dec.join("");
+    parts[1] = dec;
+  }
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+  // Menggabungkan bagian-bagian angka dengan koma sebagai pemisah desimal
+  return parts.join(",");
+};

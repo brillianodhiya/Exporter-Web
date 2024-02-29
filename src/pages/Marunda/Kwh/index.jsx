@@ -3,7 +3,7 @@ import {
   WeCurrencyWith00,
   base64ToBase64Url,
   base64UrlToBase64,
-  convertNumberFloatingDotToComma,
+  convertNumberFloatingDotToCommav2,
 } from "../../../components/utils/Converter";
 import { useEffect, useState } from "preact/hooks";
 import angkaTerbilang from "@develoka/angka-terbilang-js";
@@ -585,7 +585,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data?.export?.lwbp_awal)
                         )}
                       </p>
@@ -611,7 +611,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data?.export?.wbp_awal)
                         )}
                       </p>
@@ -637,7 +637,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data?.export?.kwh_awal)
                         )}
                       </p>
@@ -679,7 +679,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export?.lwbp_akhir)
                         )}
                       </p>
@@ -705,7 +705,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export?.wbp_akhir)
                         )}
                       </p>
@@ -720,7 +720,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export?.kwh_akhir)
                         )}
                       </p>
@@ -876,7 +876,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.export.kwh_awal)
                       )}
                     </p>
@@ -963,7 +963,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.export.kwh_akhir)
                       )}
                     </p>
@@ -978,7 +978,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(parseFloat(data.export.pemakaian_kwh))}
+                      {convertNumberFloatingDotToCommav2(parseFloat(data.export.pemakaian_kwh))}
                     </p>
                   </td> */}
                   <td
@@ -991,7 +991,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.export.pemakian_kwh)
                       )}
                     </p>
@@ -1006,7 +1006,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.export.minimum_charge_total)
                       )}
                     </p>
@@ -1022,7 +1022,7 @@ export const KwhComponent = () => {
                       }
                     >
                       {WeCurrencyWith00(data.export.kwh_price)} x{" "}
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.export.billing_pemakian_kwh)
                       )}
                     </p>
@@ -1178,7 +1178,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.kvarh_awal)
                         )}
                       </p>
@@ -1275,7 +1275,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.kvarh_akhir)
                         )}
                       </p>
@@ -1290,7 +1290,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.pemakian_kvarh)
                         )}
                       </p>
@@ -1305,7 +1305,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.max_kvarh)
                         )}
                       </p>
@@ -1320,7 +1320,7 @@ export const KwhComponent = () => {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                         }
                       >
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.kelebihan_kvarh)
                         )}
                       </p>
@@ -1336,7 +1336,7 @@ export const KwhComponent = () => {
                         }
                       >
                         {WeCurrencyWith00(data.export.kvarh_price)} x{" "}
-                        {convertNumberFloatingDotToComma(
+                        {convertNumberFloatingDotToCommav2(
                           parseFloat(data.export.kelebihan_kvarh)
                         )}
                       </p>

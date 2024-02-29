@@ -7,7 +7,7 @@ import {
   WeCurrencyWith00,
   base64ToBase64Url,
   base64UrlToBase64,
-  convertNumberFloatingDotToComma,
+  convertNumberFloatingDotToCommav2,
 } from "../../components/utils/Converter";
 
 export function Marunda() {
@@ -572,7 +572,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.start_meter)
                       )}
                     </p>
@@ -609,7 +609,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.minimum_charge_total))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.minimum_charge_total))} */}
                     </p>
                   </td>
                   <td
@@ -622,10 +622,10 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                       {/* {WeCurrencyWith00(
                         parseFloat(data.price_parameter_1)
-                      )} x {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_1))} */}
+                      )} x {convertNumberFloatingDotToCommav2(parseFloat(data.usage_parameter_1))} */}
                     </p>
                   </td>
                   <td class={"text-xs font-semibold relative"}>
@@ -673,7 +673,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.end_meter)
                       )}
                     </p>
@@ -688,7 +688,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(parseFloat(data.usage))}
+                      {convertNumberFloatingDotToCommav2(
+                        parseFloat(data.usage)
+                      )}
                     </p>
                   </td>
 
@@ -702,7 +704,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.minimum_charge_total)
                       )}
                     </p>
@@ -717,9 +719,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                       {WeCurrencyWith00(parseFloat(data.price_parameter_1))} x{" "}
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.usage_parameter_1)
                       )}
                     </p>
@@ -778,7 +780,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.end_meter))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.end_meter))} */}
                     </p>
                   </td>
                   <td
@@ -791,7 +793,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                     </p>
                   </td>
                   <td
@@ -804,7 +806,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                     </p>
                   </td>
 
@@ -829,9 +831,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                       {WeCurrencyWith00(parseFloat(data.price_parameter_2))} x{" "}
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.usage_parameter_2)
                       )}
                     </p>
@@ -881,7 +883,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.end_meter))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.end_meter))} */}
                     </p>
                   </td>
                   <td
@@ -894,7 +896,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                     </p>
                   </td>
                   <td
@@ -907,7 +909,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center font-bold"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                     </p>
                   </td>
 
@@ -932,9 +934,9 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {/* {convertNumberFloatingDotToComma(parseFloat(data.usage))} */}
+                      {/* {convertNumberFloatingDotToCommav2(parseFloat(data.usage))} */}
                       {WeCurrencyWith00(parseFloat(data.price_parameter_3))} x{" "}
-                      {convertNumberFloatingDotToComma(
+                      {convertNumberFloatingDotToCommav2(
                         parseFloat(data.usage_parameter_3)
                       )}
                     </p>
@@ -1001,7 +1003,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_1))}
+                      {convertNumberFloatingDotToCommav2(parseFloat(data.usage_parameter_1))}
                     </p>
                   </td>
 
@@ -1048,7 +1050,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_2))}
+                      {convertNumberFloatingDotToCommav2(parseFloat(data.usage_parameter_2))}
                     </p>
                   </td>
 
@@ -1095,7 +1097,7 @@ export function Marunda() {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1 text-center"
                       }
                     >
-                      {convertNumberFloatingDotToComma(parseFloat(data.usage_parameter_3))}
+                      {convertNumberFloatingDotToCommav2(parseFloat(data.usage_parameter_3))}
                     </p>
                   </td>
 
