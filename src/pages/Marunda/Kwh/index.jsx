@@ -208,7 +208,7 @@ export const KwhComponent = () => {
                         "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                       }
                     >
-                      {"080."}
+                      {/* {"080."} */}
                     </p>
                   </td>
                 </tr>

@@ -186,7 +186,8 @@ export function Marunda() {
                           "ml-1 leading-normal -mt-[6px] mb-[6px] bottom-2 left-1"
                         }
                       >
-                        {/* {data.faktur} */}080.
+                        {/* {data.faktur} */}
+                        {/* 080. */}
                       </p>
                     </td>
                   </tr>
